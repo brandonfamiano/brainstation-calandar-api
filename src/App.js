@@ -26,8 +26,44 @@ const events =[
   {
     title: "Pair Programming",
     allday: true,
-    start: new Date(2023,8, 16),
-    end: new Date(2023,8  , 16)
+    start: new Date(2023,8, 16, 11),
+    end: new Date(2023,8  , 16, 16,45)
+  },
+  {
+    title: "Pair Programming Presentations",
+    allday: true,
+    start: new Date(2023,8, 16, 16,45),
+    end: new Date(2023,8  , 16, 17,30)
+  },
+  {
+    title: "Open Studio",
+    allday: true,
+    start: new Date(2023,8, 16, 10),
+    end: new Date(2023,8  , 16, 11)
+  },
+  {
+    title: "Open Studio",
+    allday: true,
+    start: new Date(2023,8, 17, 10,30),
+    end: new Date(2023,8  , 17,12,30)
+  },
+  {
+    title: "LEC: Intro to Databases",
+    allday: true,
+    start: new Date(2023,8, 19, 19,30),
+    end: new Date(2023,8 ,19,20,30)
+  },
+  {
+    title: "LEC: Install SQL",
+    allday: true,
+    start: new Date(2023,8, 19, 20,30),
+    end: new Date(2023,8  , 19,21)
+  },
+  {
+    title: "Open Studio",
+    allday: true,
+    start: new Date(2023,8, 19, 21),
+    end: new Date(2023,8  , 19,22)
   },
 ]
 
@@ -79,7 +115,7 @@ function App() {
       selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
       <button className='event__button' style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
       </div>
-      <Calendar localizer={localizer} events={[allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
+      <Calendar localizer={localizer} events={[...allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
       
     </div>
   );
