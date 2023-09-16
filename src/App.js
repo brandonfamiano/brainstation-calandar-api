@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from "react";
+import React, {useState , useEffect} from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
@@ -8,7 +8,7 @@ import getDay from "date-fns/getDay"
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-
+import axios from 'axios';
 const locales ={
   'en-US': require('date-fns/locale/en-US')
 }
@@ -34,7 +34,24 @@ const events =[
 function App() {
   const [newEvent, setNewEvent] = useState({title:"", start:"",end:""})
   const [allEvents, setAllEvents] = useState(events )
-
+  const [holidays, setHolidays] = useState([]);
+  
+  useEffect(()=>{
+    fetch("https://date.nager.at/api/v3/PublicHolidays/2023/CA")
+    .then ((response)=>response.json())
+    .then((data) => {
+      setHolidays(data);
+    })
+    .catch((error) =>{
+      console.log("error fetching holidays")
+    }); 
+  },[]);
+let holiday = {
+  title: holidays.name,
+  allday: true,
+  start: holidays.date,
+  end: holidays.date,
+}
   function handleAddEvent(){
     setAllEvents([...allEvents, newEvent])
   }
@@ -51,7 +68,7 @@ function App() {
       <DatePicker placeholderText='End Date' 
       selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
       <button style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
-      <Calendar localizer={localizer} events={allEvents} startAccessor="start" endAccessor="end" style = {{height:500, margin: "50px"}}></Calendar>
+      <Calendar localizer={localizer} events={[allEvents,...holidays]} startAccessor="start" endAccessor="end" style = {{height:500, margin: "50px"}}></Calendar>
     </div>
   );
 }
