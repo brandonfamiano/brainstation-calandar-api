@@ -67,6 +67,7 @@ function App() {
       <header className='calendar__header'>
         <h1>Calendar</h1>
       </header>
+      <div className='add__event--section'>
       <h2>Add an Event</h2>
       <div className='event__title--container'>
         <input type='text' placeholder='Add Title' className='addtitle__field' style={{width:'20%', marginRight:"10px"}}
@@ -76,7 +77,8 @@ function App() {
       selected ={newEvent.start} onChange={(start)=> setNewEvent({...newEvent, start})}/>
       <DatePicker className='date__field' placeholderText='End Date' 
       selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
-      <button style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
+      <button className='event__button' style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
+      </div>
       <Calendar localizer={localizer} events={[allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
       
     </div>

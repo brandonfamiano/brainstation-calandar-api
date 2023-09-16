@@ -2,13 +2,14 @@ body {
   margin: 0;
   padding: 0;
   border: none;
-  background-color: #dbe6db;
+  background-color: #f7f9f8;
 }
 
 .calendar__header {
   margin-top: 0;
   border-radius: 4px;
   text-align: center;
+  background-color: #f7f9f8;
 }
 
 .calendar__header h1, h2 {
@@ -20,4 +21,31 @@ body {
 .addtitle__field {
   border-radius: 4px;
   margin-left: 1rem;
+  border: #ecd5e3;
+  background-color: #dbe6db;
+}
+
+.date__field {
+  border-radius: 4px;
+  margin-left: 1rem;
+  border: #dbe6db;
+  background-color: #dbe6db;
+}
+
+.event__button {
+  border-radius: 4px;
+  background-color: #fde0d5;
+  border-color: #fde0d5;
+}
+
+.rbc-month-row {
+  border: 2px;
+}
+
+.add__event--section {
+  background-color: #f7f9f8;
+}
+
+.add__event--section h2 {
+  padding-left: 1rem;
 }/*# sourceMappingURL=styles.css.map */
