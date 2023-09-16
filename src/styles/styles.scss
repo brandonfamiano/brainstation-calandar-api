@@ -27,14 +27,14 @@ body {
     border-radius: 4px;
     margin-left: 1rem;
     border: #ecd5e3;
-    background-color: #dbe6db;
+    background-color: #41b3a3;
 }
 
 .date__field {
     border-radius: 4px;
     margin-left: 1rem;
     border: #dbe6db;
-    background-color: #dbe6db;
+    background-color: #85DCBA;
 }
 
 .event__button {
@@ -47,11 +47,52 @@ body {
     border: 2px;
     
 }
-
+::placeholder{
+    color:white;
+}
+.input{
+    ::placeholder{
+        color:white;
+    }
+}
 .add__event--section {
-    background-color: #f7f9f8;
+    background-color: #f7f9f8   ;
+    
 }
 
 .add__event--section h2 {
     padding-left: 1rem;
+}
+.react-datepicker-popper{
+    z-index:11;
+    background:white;
+}
+.add__event--section{
+}
+.react-datepicker__input-container{
+    input{
+        font-size: 1rem;
+        color:white;
+    }
+}
+.event__title--container{
+    input{
+        font-size:1.5rem;
+        color:white;
+    }
+}
+.rbc-toolbar-label{
+    font-size:2rem;
+}
+.rbc-event{
+    background-color:#e27d60;
+    border-color:#e27d60;
+}
+.rbc-event-content{
+    background-color:#e27d60;
+    border-color:#e27d60;
+}
+.rbc-selected{
+    background-color:#e27d60;
+    border-color:#e27d60;
 }
