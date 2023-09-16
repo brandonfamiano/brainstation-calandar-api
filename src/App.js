@@ -73,7 +73,7 @@ function App() {
       <DatePicker placeholderText='End Date' 
       selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
       <button style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
-      <Calendar localizer={localizer} events={[allEvents,...holidays]} startAccessor="start" endAccessor="end" style = {{height:500, margin: "50px"}}></Calendar>
+      <Calendar localizer={localizer} events={[...allEvents,...holidays]} startAccessor="start" endAccessor="end" style = {{height:500, margin: "50px"}}></Calendar>
     </div>
   );
 }
