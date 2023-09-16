@@ -9,6 +9,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import './styles/styles.scss'
 const locales ={
   'en-US': require('date-fns/locale/en-US')
 }
@@ -21,10 +22,9 @@ const localizer = dateFnsLocalizer({
   getDay,
   locales
 })
-
 const events =[
   {
-    title: "event1",
+    title: "Pair Programming",
     allday: true,
     start: new Date(2023,8, 16),
     end: new Date(2023,8  , 16)
@@ -60,7 +60,9 @@ function App() {
   function handleAddEvent(){
     setAllEvents([...allEvents, newEvent])
   }
+  
   return (
+    
     <div className="body">
       <h1>Calendar</h1>
       <h2>Add an Event</h2>
@@ -73,7 +75,8 @@ function App() {
       <DatePicker placeholderText='End Date' 
       selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
       <button style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
-      <Calendar localizer={localizer} events={[...allEvents,...holidays]} startAccessor="start" endAccessor="end" style = {{height:500, margin: "50px"}}></Calendar>
+      <Calendar localizer={localizer} events={[allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
+      
     </div>
   );
 }
