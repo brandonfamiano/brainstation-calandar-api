@@ -38,20 +38,25 @@ function App() {
   
   useEffect(()=>{
     fetch("https://date.nager.at/api/v3/PublicHolidays/2023/CA")
-    .then ((response)=>response.json())
-    .then((data) => {
-      setHolidays(data);
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data)=>{
+      const formattedHolidays = data.map((holiday) =>({
+        title: holiday.name,
+        allday: true,
+        start: new Date(holiday.date),
+        end: new Date(holiday.date)
+      }));
+      setHolidays(formattedHolidays);
     })
     .catch((error) =>{
       console.log("error fetching holidays")
     }); 
   },[]);
-let holiday = {
-  title: holidays.name,
-  allday: true,
-  start: holidays.date,
-  end: holidays.date,
-}
   function handleAddEvent(){
     setAllEvents([...allEvents, newEvent])
   }
