@@ -1,3 +1,28 @@
-.rbc-calendar{
-    display:none
+// .rbc-calendar{
+//     //display:none
+// }
+
+body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: #dbe6db;
+}
+
+
+.calendar__header {
+    margin-top: 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.calendar__header h1, h2 {
+    margin-top: 0;
+    color: #f3b0c3;
+    text-shadow: 2px 2px;;
+}
+
+.addtitle__field {
+    border-radius: 4px;
+    margin-left: 1rem;
 }

@@ -9,7 +9,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
-import './styles/styles.scss'
+import './styles/styles.css'
 const locales ={
   'en-US': require('date-fns/locale/en-US')
 }
@@ -64,15 +64,17 @@ function App() {
   return (
     
     <div className="body">
-      <h1>Calendar</h1>
+      <header className='calendar__header'>
+        <h1>Calendar</h1>
+      </header>
       <h2>Add an Event</h2>
-      <div>
-        <input type='text' placeholder='Add Title' style={{width:'20%', marginRight:"10px"}}
+      <div className='event__title--container'>
+        <input type='text' placeholder='Add Title' className='addtitle__field' style={{width:'20%', marginRight:"10px"}}
         value={newEvent.title} onChange={(e)=> setNewEvent({...newEvent, title: e.target.value})}/>
       </div>
-      <DatePicker placeholderText='Start Date' style={{marginRight:'10px'}}
+      <DatePicker className='date__field' placeholderText='Start Date' style={{marginRight:'10px'}}
       selected ={newEvent.start} onChange={(start)=> setNewEvent({...newEvent, start})}/>
-      <DatePicker placeholderText='End Date' 
+      <DatePicker className='date__field' placeholderText='End Date' 
       selected ={newEvent.end} onChange={(end)=> setNewEvent({...newEvent, end})}/>
       <button style = {{margin:'10px'}} onClick={handleAddEvent}>Add Event</button>
       <Calendar localizer={localizer} events={[allEvents,...holidays]} startAccessor="start" endAccessor="end" className ="calendar" style = {{height:500, margin: "50px"}}></Calendar>
